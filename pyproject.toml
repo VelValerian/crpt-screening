@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "crpt-screening"
+version = "0.1.0"
+description = ""
+authors = ["Valerian <@VelValerian>"]
+readme = "README.md"
+packages = [{include = "crpt_screening"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
