@@ -12,6 +12,7 @@ binance-futures-connector = "^3.3.1"
 pandas = "^2.0.3"
 urllib3 = "^2.0.3"
 datetime = "^5.1"
+ta = "^0.10.2"
 
 
 [build-system]

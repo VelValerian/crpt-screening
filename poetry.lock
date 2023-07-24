@@ -658,6 +658,20 @@ files = [
 ]
 
 [[package]]
+name = "ta"
+version = "0.10.2"
+description = "Technical Analysis Library in Python"
+optional = false
+python-versions = "*"
+files = [
+    {file = "ta-0.10.2.tar.gz", hash = "sha256:e8d193dadd44d88e3c4118dc5224e2fcdc0235caba3efa758aa7a875ffba2faa"},
+]
+
+[package.dependencies]
+numpy = "*"
+pandas = "*"
+
+[[package]]
 name = "twisted"
 version = "22.10.0"
 description = "An asynchronous networking framework written in Python"
@@ -825,4 +839,4 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "db51802073187afb1c2788de9d610433e7667f78d8ad39a66e8412828dec80d4"
+content-hash = "d8125174fc53323fb206dbdf60c5417b5146a71f8dca147efc564752194571ff"
