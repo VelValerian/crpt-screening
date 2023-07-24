@@ -3,13 +3,6 @@ from datetime import datetime as date
 from binance.um_futures import UMFutures
 from pathlib import Path
 
-# Define the symbol and intervals DATA COLLECTOR
-symbol = "BTCUSDT"
-interval = "5m"
-limit = 1000
-file_name = 'test1.csv'
-date_start = '2023-07-10 03:00:00'
-
 # Parcing data and collect in df
 def fetch_historical_data(symbol, interval, limit, start_time, end_time):
     client = UMFutures()

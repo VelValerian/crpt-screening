@@ -1,6 +1,6 @@
 from binance.um_futures import UMFutures
 import pandas as pd
-import os
+from pathlib import Path
 import time
 import data.data_collector as data_coll
 
@@ -8,14 +8,16 @@ import data.data_collector as data_coll
 symbol = "BTCUSDT"
 interval = "5m"
 limit = 1000
-file_name = 'BTCUSDT_5m_20230710.csv'
-date_start = '2023-07-10 03:00:00'
+file_name = 'BTCUSDT_5m_20230601.csv'
+date_start = '2023-06-01 03:00:00'
+file_path = Path('data', file_name)
 
 # Check if the file exists, otherwise call data_collector to fetch and save the data
-if os.path.isfile(file_name):
-    print(f"{file_name} already exists. Proceeding with the analysis...")
+if Path.is_file(file_path):
+    print(f"{file_name} already exists.")
 else:
     while not data_coll.save_historical_data(symbol, interval, limit, date_start, file_name):
         print(f"Waiting for {file_name} to be saved...")
         time.sleep(10)
+        break
 
