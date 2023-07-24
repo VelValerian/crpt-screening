@@ -53,8 +53,32 @@ def calculate_psar(df: pd.DataFrame) -> pd.Series:
     psar = psar_indicator.psar()
     return psar
 
+def calculate_obv(df: pd.DataFrame) -> pd.Series:
+    obv_indicator = ta.volume.OnBalanceVolumeIndicator(close=df['close'], volume=df['volume'])
+    obv = obv_indicator.on_balance_volume()
+    return obv
+
+def calculate_ad_line(df: pd.DataFrame) -> pd.Series:
+    acc_dis_indicator = ta.volume.AccDistIndexIndicator(high=df["high"], low=df["low"],
+                                                        close=df['close'], volume=df['volume'])
+    ad_line = acc_dis_indicator.acc_dist_index()
+    return ad_line
+
+def calculate_aroon_up(df: pd.DataFrame) -> pd.Series:
+    aroon_indicator = ta.trend.AroonIndicator(high=df["high"], low=df["low"])
+    dataroon_up = aroon_indicator.aroon_up()
+    return dataroon_up
+
+def calculate_aroon_down(df: pd.DataFrame) -> pd.Series:
+    aroon_indicator = ta.trend.AroonIndicator(high=df["high"], low=df["low"])
+    aroon_down = aroon_indicator.aroon_down()
+    return aroon_down
 
 # calculate indicators
 df["ema"] = calculate_ema(df)
 df["rsi"] = calculate_rsi(df)
 df["sar"] = calculate_psar(df)
+df["obv"] = calculate_obv(df)
+df["ad_line"] = calculate_ad_line(df)
+df["dataroon_up"] = calculate_aroon_up(df)
+df["aroon_down"] = calculate_aroon_down(df)
